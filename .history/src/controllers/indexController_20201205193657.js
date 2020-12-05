@@ -34,9 +34,7 @@ callback: (req, res) => {
 },
 
 notifications: (req, res) => {
-    console.log(req.body)
-
-    res.status(200).end('ok')
+    console.log
 },
 comprar: (req, res) => {
     const host = 'http://localhost:3000/'
@@ -47,8 +45,10 @@ comprar: (req, res) => {
             success: url + 'success',
             pending: url + 'pending',
             failure: url + 'failure',
+
         },
 
+        auto_return: 'approved',
         notification_url: host + 'notifications',
         auto_return: 'aproved',
 

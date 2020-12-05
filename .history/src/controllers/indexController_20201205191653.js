@@ -29,14 +29,10 @@ callback: (req, res) => {
         return res.render ('pending')
     }
 
-    return res.status(404).end()
-
 },
 
 notifications: (req, res) => {
-    console.log(req.body)
-
-    res.status(200).end('ok')
+    console.log
 },
 comprar: (req, res) => {
     const host = 'http://localhost:3000/'
@@ -47,8 +43,8 @@ comprar: (req, res) => {
             success: url + 'success',
             pending: url + 'pending',
             failure: url + 'failure',
-        },
 
+        },
         notification_url: host + 'notifications',
         auto_return: 'aproved',
 

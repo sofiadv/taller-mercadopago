@@ -14,7 +14,7 @@ module.exports = {
         return res.render("detail", { ...req.query });    
 },
 
-callback: (req, res) => {
+Callback: (req, res) => {
     console.log(req.query)
 
     if(req.query.status.includes('success')){
@@ -29,26 +29,22 @@ callback: (req, res) => {
         return res.render ('pending')
     }
 
-    return res.status(404).end()
-
 },
 
 notifications: (req, res) => {
-    console.log(req.body)
-
-    res.status(200).end('ok')
+    console.log
 },
 comprar: (req, res) => {
     const host = 'http://localhost:3000/'
-    const url = host + 'callback?status='
+    const url = host + 'callback?status'
 
     let preference = {
         back_urls: {
             success: url + 'success',
             pending: url + 'pending',
             failure: url + 'failure',
-        },
 
+        },
         notification_url: host + 'notifications',
         auto_return: 'aproved',
 
@@ -80,8 +76,8 @@ comprar: (req, res) => {
                 id: 1234,
                 picture_url: 'https://taller-mercadopago-sofi.herokuapp.com/images/products/disruptor.jpg',
                 tittle: 'Nombre del producto',
-                description: 'Dispositivo móvil de Tienda e-commerce',
-                unit_price: Number('999'),
+                description: 'dispositivo movil de tienda e-commerce',
+                unit_price: Number ('999'),
                 quantity: 1
             }
         ],

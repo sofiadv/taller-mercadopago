@@ -9,7 +9,7 @@ router.get('/', indexController.home);
 /* GET detail page */
 router.get('/detail', indexController.detail);
 
-router.get('/callback', indexController.callback);
+router.get('/callback', indexController.Callback);
 
 router.post('/notifications', indexController.notifications)
 
