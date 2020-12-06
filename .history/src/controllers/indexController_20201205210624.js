@@ -15,42 +15,30 @@ module.exports = {
 },
 
 callback: (req, res) => {
-    console.log (req.query)
+    console.log(req.query)
 
-    if (req.query.status.includes ('success')){
+    if (req.query === 'success'){
         return res.render('success')
     }
 
-    if (req.query.status.includes ('pending')){
+    if (req.query === 'pending'){
         return res.render('pending')
     }
 
-    if (req.query.status.includes ('failure')){
+    if (req.query === 'failure'){
         return res.render('failure')
     }
 
     return res.status(404).end()
 },
 
-notifications: (req, res) => {
-    console.log(req.body)
-
-    res.status(200).end('ok')
-},
-
 comprar: (req, res) => {
-    const host = 'http://localhost:3000/'
-    const url = host + 'callback?status'
-
     let preference = {
-        back_urls: {
-            success: url + 'success',
-            pending: url + 'pending',
-            failure: url + 'failure',
+        backs_urls: {
+            success: 'http://localhost:3000/callback?status=success',
+            pending: 'http://localhost:3000/callback?status=pending',
+            failure: 'http://localhost:3000/callback?status=failure',
         },
-        notification_url: host + 'notifications',
-        auto_return: 'approved',
-
         payer: {
             name: 'Ryan',
             surname: 'Dahl',

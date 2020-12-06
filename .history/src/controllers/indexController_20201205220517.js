@@ -39,16 +39,14 @@ notifications: (req, res) => {
 },
 
 comprar: (req, res) => {
-    const host = 'http://localhost:3000/'
-    const url = host + 'callback?status'
-
+    const url = 'http://localhost:3000/callback?status='
     let preference = {
         back_urls: {
             success: url + 'success',
             pending: url + 'pending',
             failure: url + 'failure',
         },
-        notification_url: host + 'notifications',
+        notification_url: '',
         auto_return: 'approved',
 
         payer: {

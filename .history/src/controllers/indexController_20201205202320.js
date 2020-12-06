@@ -15,21 +15,22 @@ module.exports = {
 },
 
 callback: (req, res) => {
-    console.log (req.query)
+    console.log(req.query)
 
-    if (req.query.status.includes ('success')){
-        return res.render('success')
+    if(req.query.status.includes('success')){
+        return res.render ('success')
     }
 
-    if (req.query.status.includes ('pending')){
-        return res.render('pending')
+    if(req.query.status.includes('failure')){
+        return res.render ('failure')
     }
 
-    if (req.query.status.includes ('failure')){
-        return res.render('failure')
+    if(req.query.status.includes('pending')){
+        return res.render ('pending')
     }
 
     return res.status(404).end()
+
 },
 
 notifications: (req, res) => {
@@ -37,10 +38,9 @@ notifications: (req, res) => {
 
     res.status(200).end('ok')
 },
-
 comprar: (req, res) => {
-    const host = 'http://localhost:3000/'
-    const url = host + 'callback?status'
+    const host = 'https://taller-mercadopago-sofi.herokuapp.com/'
+    const url = host + 'callback?status='
 
     let preference = {
         back_urls: {
@@ -48,8 +48,9 @@ comprar: (req, res) => {
             pending: url + 'pending',
             failure: url + 'failure',
         },
+
         notification_url: host + 'notifications',
-        auto_return: 'approved',
+        auto_return: 'aproved',
 
         payer: {
             name: 'Ryan',
@@ -63,7 +64,7 @@ comprar: (req, res) => {
                 zip_code: '1234',
                 street_name: 'Monroe',
                 street_number: 860,
-            }
+            },
         },
         payment_methods:{
                 excluded_payment_methods: [
@@ -76,7 +77,7 @@ comprar: (req, res) => {
         },
         items: [
             {
-                id: 1234,
+                id: '1234',
                 picture_url: 'https://taller-mercadopago-sofi.herokuapp.com/images/products/disruptor.jpg',
                 tittle: 'Nombre del producto',
                 description: 'Dispositivo móvil de Tienda e-commerce',

@@ -15,9 +15,9 @@ module.exports = {
 },
 
 callback: (req, res) => {
-    console.log (req.query)
+    console.log(req.query)
 
-    if (req.query.status.includes ('success')){
+    if (req.query.status.includes ('approve')){
         return res.render('success')
     }
 
@@ -32,25 +32,14 @@ callback: (req, res) => {
     return res.status(404).end()
 },
 
-notifications: (req, res) => {
-    console.log(req.body)
-
-    res.status(200).end('ok')
-},
-
 comprar: (req, res) => {
-    const host = 'http://localhost:3000/'
-    const url = host + 'callback?status'
-
+    const url = 'http://localhost:3000/callback?status='
     let preference = {
         back_urls: {
             success: url + 'success',
             pending: url + 'pending',
             failure: url + 'failure',
         },
-        notification_url: host + 'notifications',
-        auto_return: 'approved',
-
         payer: {
             name: 'Ryan',
             surname: 'Dahl',

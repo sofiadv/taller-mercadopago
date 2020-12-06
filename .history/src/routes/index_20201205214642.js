@@ -11,8 +11,6 @@ router.get('/detail', indexController.detail);
 
 router.get('/callback', indexController.callback)
 
-router.post('/notifications', indexController.notifications )
-
 /*POST/ comprar*/
 router.post('/comprar', indexController.comprar)
 
