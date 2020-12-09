@@ -13,7 +13,7 @@ router.get('/callback', indexController.callback)
 
 router.post('/notifications', indexController.notifications)
 
-router.post('/webhooks', indexController.webhook)
+router.post('webhook', indexController.webhook)
 
 /*POST/ comprar*/
 router.post('/comprar', indexController.comprar)
