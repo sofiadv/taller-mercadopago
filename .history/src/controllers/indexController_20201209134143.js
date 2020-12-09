@@ -36,6 +36,11 @@ callback: (req, res) => {
     return res.status(404).end()
 },
 
+webhook: (req, res) => {
+    console.log('webhook', req.body)
+    res.send(req.body)
+},
+
 notifications: (req, res) => {
     console.log('webhook', req.body);
 
